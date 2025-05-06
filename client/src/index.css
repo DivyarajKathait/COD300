@@ -1,0 +1,72 @@
+
+/* ———————————— default CRA styles ———————————— */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+               sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+               monospace;
+}
+
+/* ————————— custom scheduler styles ————————— */
+
+/* cancelled events in the calendar */
+.cancelled-event {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.completed-event {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* ——— modal backdrop ——— */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* use background-color, not opacity, so children remain fully opaque */
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* sit above everything else */
+  z-index: 9999;
+
+  /* allow clicks to pass through the backdrop except on the modal */
+  pointer-events: auto;
+}
+
+/* ——— modal dialog ——— */
+.modal {
+  /* make sure it’s fully opaque */
+  background-color: #fff;
+  opacity: 1 !important;
+
+  /* place it above the backdrop */
+  position: relative;
+  z-index: 10000;
+
+  /* restore normal click behavior */
+  pointer-events: auto;
+
+  /* your existing layout */
+  padding: 1rem;
+  border-radius: 5px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ensure the buttons inside really catch clicks */
+.modal button {
+  pointer-events: auto;
+}
